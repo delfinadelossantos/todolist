@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import NavBar from "./components/NavBar";
+import { Route, Routes } from "react-router-dom";
+import ToDos from "./components/ToDos";
+import Form from "./components/Form";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Como NavBar está fuera de las Routes, se va a mostrar siempre */}
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<ToDos />} />
+        <Route path="/form" element={<Form />} />
+      </Routes>
     </div>
   );
 }
